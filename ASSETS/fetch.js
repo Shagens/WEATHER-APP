@@ -1,17 +1,23 @@
-class fetch {
-    async getCurrent(input){
-    const myKey = "e31577bbe7b7488daef213652211209";
+var button = document.querySelector('.button')
+var inputValue = document.querySelector('.inputValue')
+var name = document.querySelector('name');
+var temp = document.querySelector('.temp');
 
-        const response = await fetch(
-            "https://www.weatherapi.com/my/?q=${input}&appid=${e31577bbe7b7488daef213652211209}"
+button.addEventListener('click',function(){
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid=60442978a2ab29de03399296c31fa7c2')
+    .then(response => response.json())
+    .then(data => {
+        var nameValue = data['name'];
+        var tempValue = data['main']['temp'];
 
-        );
+        name.innerHTML =nameValue
+        temp.innerHTML =tempValue
+    })
+})
 
-        const data = await response.json();
+// function fetchData() {
+//     fetch('httpsapi.openweathermap.org/data/2.5/weather?q={city name}&appid=f6b7ecdadfb9fdb78df7401efa2f5c50')
+// }
 
-        console.log(data);
 
-        return data;
-    }
-}
 
