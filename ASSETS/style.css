@@ -24,9 +24,12 @@ body {
 }
 
 input {
-    text-align: center;
+    text-align:center;
+    text-shadow: lawngreen;
     font-size: large;
     font-weight: bold;
+    background-color: lightblue;
+    font-display: initial;
 }
 
 .display {
